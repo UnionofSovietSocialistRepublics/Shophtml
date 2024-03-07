@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in</title>
+    <link rel="stylesheet" href="..\css\login.css">
+</head>
+<body>
+    <script src="https://kit.fontawesome.com/3bafc14110.js" crossorigin="anonymous"></script>
+    <script
+    type="module"
+    src="https://cdn.jsdelivr.net/npm/@bufferhead/nightowl@0.0.14/dist/nightowl.js"
+></script>
+    <main>
+        <nav class="drugs" class="space"><a href="html.html" class="navanax"> <i class="fa-solid fa-house"></i>Home page</a>
+            <a href="signup.html" class="navanax"><i class="fa-solid fa-user-plus"></i>Sign up</a>
+            <a href="login.html" class="navanax"><i class="fa-solid fa-right-to-bracket"></i>Login</a>
+            </nav>
+    <script src="js.js"></script>
+    <div class="box"> <div class="border"><div class="title"><h1>Sign in</h1>
+    </div><br>
+        <label for="email"><h3>Passwork</h3></label><br>
+        <input type="email" id="email"> <br> <br>
+        <label for="password"><h3>Email</h3></label> <br>
+        <input type="password" id="password"> <br> <br>
+    <div class="mid" style="width: 200px;"><button id="log"><h1>Login</h1></button></div></div>   
+    
+</div>
+
+<footer id="bottom">  
+    <div class="nava">Random piece of text for a "footer" </div>
+  <div class="nava"> Blah blah blah</div>
+  <a class="nava" target="_blank" style="float: left; text-decoration: none;"  href="https://github.com/UnionofSovietSocialistRepublics"><i class="fa-brands fa-github"></i> Made by Horizon</a>
+</footer>
+</main>
+</body>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.2/firebase-app.js";
+    import { getDatabase, set, ref} from "https://www.gstatic.com/firebasejs/9.9.2/firebase-database.js";
+    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.9.2/firebase-auth.js";;
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyCzc5Z8XCGkLAnp1x_wOpOE25pBHjfACPc",
+      authDomain: "auth-a73a8.firebaseapp.com",
+      databaseURL: "https://auth-a73a8-default-rtdb.firebaseio.com",
+      projectId: "auth-a73a8",
+      storageBucket: "auth-a73a8.appspot.com",
+      messagingSenderId: "20002627143",
+      appId: "1:20002627143:web:63c05bd9ed4504f4e41b62"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app)
+    const auth = getAuth()
+  
+    log.addEventListener('click',(e) => {
+      
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
+        console.log(email," ",password)
+        signInWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    alert("logged in")
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    alert(errorMessage)
+  });
+    })
+  </script> 
+</html>

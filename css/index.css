@@ -1,33 +1,89 @@
-
-.title{
+.mid, #mid{
     text-align: center;
     margin: auto auto auto;
 }
 
-.button{
-    text-align: center;
-    margin: auto auto auto;
-}
-.box{
-    padding: 200px;
-    text-align: center;
-    margin: auto auto auto;
-}
+.containter{
+    width: 100%;
 
-.border{
-    text-align: center;
-    margin: auto auto auto;
-    width: 250px;
-    border-color: black;
-    border-style: double;
-}
-
-.form{
     
-    display: flex;
-    justify-content: center;
-    text-align: center;
 }
+
+.sticky{
+    top: 0;
+    
+    position: sticky;
+    text-align: center;
+    margin: auto auto auto;
+    background-color: darkgray;
+}
+
+.box{
+    height: 300pxs;
+}
+
+.maintext{
+    font-size: 50px;
+}
+
+.drugs{
+    display:inline-block;
+}
+
+.mids{
+    text-align: center;
+    margin-bottom: 50px;  
+    margin-top: 50px;
+}
+
+.test{
+        display: flex;
+        flex-wrap: wrap;
+        text-align: center;
+        justify-content: center;
+}
+
+.first, .second, .third, .final{
+    width: 200px;
+    float: left;
+}
+
+#bottom{
+width: 100%;
+background-color: black !important;
+display: flex;
+position: absolute;
+bottom: 0px;
+}
+.nava{
+    color:whitesmoke;
+    padding: 12px 15px;
+    height: 100%;
+    font-weight: 850;
+    font-size: larger;
+    
+}  
+
+
+nav{
+    color:whitesmoke !important;
+    background-color: black !important;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.navanax{
+    text-decoration: none;
+    color:gray;
+    padding: 12px 15px;
+    height: 100%;
+    font-weight: 850;
+    font-size: larger;
+    
+}  
 
 * {
     box-sizing: border-box;
@@ -41,61 +97,16 @@
     padding: 0;
 }
 
-.buttonelement{
-    background-color: lightskyblue;
-    border-color: lightskyblue;
-    width: 200px;
-    height: 50px;
+.navanax:hover {
+    background-color: whitesmoke;
+    color: black;
 }
-#bottom{
+
+main{
+    min-height: 100vh;
+}
+
+#shop{
     display: flex;
-    position: fixed;
-    bottom: 0;
-    }
-    
-    .ball{
-        text-align: center;
-        margin-right: 30px;
-    }
-    
-    #bottom{
-        width: 100%;
-        background-color: black !important;
-        display: flex;
-        position: absolute;
-        bottom: 0px;
-        }
-        .nava{
-            color:whitesmoke;
-            padding: 12px 15px;
-            height: 100%;
-            font-weight: 850;
-            font-size: larger;
-            
-        }  
-        main{
-            min-height: 100vh;
-        }
-        .navanax:hover {
-            background-color: whitesmoke;
-            color: black;
-        }
-        nav{
-            color:whitesmoke !important;
-            background-color: black !important;
-            position: fixed;
-            width: 100%;
-            z-index: 1;
-            padding: 10px;
-            text-decoration: none;
-        }
-        
-        .navanax{
-            text-decoration: none;
-            color:gray;
-            padding: 12px 15px;
-            height: 100%;
-            font-weight: 850;
-            font-size: larger;
-            
-        } 
+    flex-wrap: wrap;
+}
