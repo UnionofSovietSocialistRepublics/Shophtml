@@ -6,20 +6,21 @@
     <title>Chinese shop</title>
     <link rel="stylesheet" href="..\css\index.css">
 </head>
-<body style="background-color: gray;">
+<body style="background-color: white;">
     <script src="https://kit.fontawesome.com/3bafc14110.js" crossorigin="anonymous"></script>
     <script
     type="module"
     src="https://cdn.jsdelivr.net/npm/@bufferhead/nightowl@0.0.14/dist/nightowl.js"
 ></script>
-<main>
-
+<main style="background-color: white;">
+<script src="../js/index.js"></script>
         <nav class="containter" style="position: sticky; top: 0; height: 60px;" class="space"><a href="index.html" class="navanax"> <i class="fa-solid fa-house"></i>Home page</a>
         <a href="shop.html" class="navanax"> <i class="fa-solid fa-shop"></i>Shop page</a>
         <a href="shop2.html" class="navanax"><i class="fa-solid fa-shop"></i>Shop Page 2</a>
         <a href="" class="navanax"><i class="fa-solid fa-shop"></i>Shop Page 3</a>
         <a href="signup.html" class="navanax"><i class="fa-solid fa-user-plus"></i>Sign up</a>
         <a href="login.html" class="navanax"><i class="fa-solid fa-right-to-bracket"></i>Login</a>
+        <a class="navanax" id="out"><i class="fa-solid fa-right-to-bracket"></i>Log out</a>
         </nav>
     
 
@@ -97,7 +98,7 @@ margin: auto auto auto; height: 600px;">
     <span class="mid" style="width: 100%; height: 300px; background-color: darkgray;">
         
         <h2 class="mid">So why don't you shop NOW?</h2>
-        <button class="mid" style="height: 50px; width: 400px;  background-color:skyblue; border-color: skyblue;"><h1>Shop Now</h1></button>
+        <button class="mid" style="height: 50px; width: 400px;  background-color:skyblue; border-color: skyblue;" onclick="teleportation()"><h1>Shop Now</h1></button>
     </span>
 </div>
 
@@ -109,7 +110,38 @@ margin: auto auto auto; height: 600px;">
   <a class="nava" target="_blank" style="float: left; text-decoration: none;"  href="https://github.com/UnionofSovietSocialistRepublics"><i class="fa-brands fa-github"></i> Made by Horizon</a>
 </footer>
 </main>
-
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.2/firebase-app.js";
+    import { getDatabase, set, ref} from "https://www.gstatic.com/firebasejs/9.9.2/firebase-database.js";
+    import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/9.9.2/firebase-auth.js";;
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyCzc5Z8XCGkLAnp1x_wOpOE25pBHjfACPc",
+      authDomain: "auth-a73a8.firebaseapp.com",
+      databaseURL: "https://auth-a73a8-default-rtdb.firebaseio.com",
+      projectId: "auth-a73a8",
+      storageBucket: "auth-a73a8.appspot.com",
+      messagingSenderId: "20002627143",
+      appId: "1:20002627143:web:63c05bd9ed4504f4e41b62"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app)
+    const auth = getAuth()
+  
+    out.addEventListener('click',(e) => {
+    signOut(auth).then(() => {
+    alert("Signed out sucessfully")
+    }).catch((error) => {
+    alert("Something wrong happened.")
+    });
+    })
+  </script> 
 </body>
 
 </html>

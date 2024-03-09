@@ -7,6 +7,8 @@ const options = {
 	}
 };
 
+
+
 async function gd(){
 try {
 	const response = await fetch(url, options);
@@ -21,3 +23,4 @@ try {
 }
 }
 gd();
+
