@@ -4,8 +4,9 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sign up</title>
     <link rel="stylesheet" href="..\css\signup.css">
+    <link rel="icon" type="image/x-icon" href="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.2_ZX4zBjAdgYkRSsxGlGtgHaHa%26pid%3DApi&f=1&ipt=52f73723b0dd79f8690684ab26494ba9ebe579902dfee63a7bbe2f40fbbe5f08&ipo=images">
 </head>
 <body>
   <script src="https://kit.fontawesome.com/3bafc14110.js" crossorigin="anonymous"></script>
@@ -65,9 +66,16 @@
   sign.addEventListener('click',(e) => {
     
       var email = document.getElementById('email').value;
+      var check = document.getElementById('password').value;
       var password = document.getElementById('repassword').value;
       var username = document.getElementById('username').value;
       console.log(email," ",password)
+      switch(username.length){
+        case 0:
+          alert("Your username is empty!")
+          return;
+        default:
+      if (password === check) {
       createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
       // Signed up 
@@ -84,6 +92,10 @@
       alert(errorMessage)
       // ..
 });
+      }else {
+        alert("password/retype password field does not have the same value!")
+      }
+  }
   })
 </script> 
 </html>

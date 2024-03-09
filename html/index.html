@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chinese shop</title>
+    <title>Chinese shoes shop</title>
     <link rel="stylesheet" href="..\css\index.css">
+    <link rel="icon" type="image/x-icon" href="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftoppng.com%2Fpublic%2Fuploads%2Fpreview%2Fstore-icon-store-icon-png-black-11563227126ewkh9pmoq4.png&f=1&nofb=1&ipt=fe77a0e07351a47eb98995b7375802ead3cb08d8997e2256ea1cfe9b9dd21266&ipo=images">
 </head>
 <body style="background-color: white;">
     <script src="https://kit.fontawesome.com/3bafc14110.js" crossorigin="anonymous"></script>
@@ -113,8 +114,8 @@ margin: auto auto auto; height: 600px;">
 <script type="module">
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.2/firebase-app.js";
-    import { getDatabase, set, ref} from "https://www.gstatic.com/firebasejs/9.9.2/firebase-database.js";
-    import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/9.9.2/firebase-auth.js";;
+    import { getDatabase, set, ref, onValue} from "https://www.gstatic.com/firebasejs/9.9.2/firebase-database.js";
+    import { getAuth, signOut, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.9.2/firebase-auth.js";;
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
   
@@ -131,16 +132,32 @@ margin: auto auto auto; height: 600px;">
   
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
-    const database = getDatabase(app)
+    const db = getDatabase(app)
     const auth = getAuth()
   
     out.addEventListener('click',(e) => {
     signOut(auth).then(() => {
     alert("Signed out sucessfully")
+    window.location.reload(false); 
     }).catch((error) => {
     alert("Something wrong happened.")
     });
     })
+    onAuthStateChanged(auth, (user) => {
+  if (user) {
+    const uid = user.uid;
+    const starCountRef = ref(db, 'users/' + uid);
+onValue(starCountRef, (snapshot) => {
+  const data = snapshot.val();
+  console.log(data)
+  document.getElementById("out").innerHTML+=` (Currently logged in as: ${data.username})`
+});
+    // ...
+  } else {
+
+  }
+});
+
   </script> 
 </body>
 
