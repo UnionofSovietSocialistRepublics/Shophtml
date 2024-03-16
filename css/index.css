@@ -3,6 +3,10 @@
     margin: auto auto auto;
 }
 
+main{
+    background-image: linear-gradient(lightblue, white);
+}
+
 .containter{
     width: 100%;
 
