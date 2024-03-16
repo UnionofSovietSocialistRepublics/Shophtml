@@ -10,6 +10,9 @@
     margin: 0;
     padding: 0;
 }
+main{
+    background-image: linear-gradient(lightblue, white);
+}
 .mid{
     text-align: center;
     margin: auto auto auto;

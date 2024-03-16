@@ -28,7 +28,7 @@
             <input type="password" id="password" placeholder="password"> <br> <br>
             <input type="password" id="repassword" placeholder="retype your password"> <br> <br>
             <input type="text" id="username" placeholder="username"> <br> <br>
-            <button id="sign"><h1>Sign up</h1></button> 
+            <button id="sign" style="height: 50px; width: 200px;  background-color:skyblue; border-color: skyblue; border-radius: 12px;"><h1>Sign up</h1></button> 
         </div> <br> </div>
 
 
@@ -80,11 +80,15 @@
       .then((userCredential) => {
       // Signed up 
       alert("Sign up suscessful")
+      setTimeout(Teleportation, 5000)
       const user = userCredential.user;
       set(ref(database, 'users/' + user.uid),{
         username: username,
         email: email
       })
+      function Teleportation() {
+        window.location.href = 'login.html';
+      }
       })
       .catch((error) => {
       const errorCode = error.code;
